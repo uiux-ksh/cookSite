@@ -73,6 +73,11 @@ function WritingForm() {
                     <input name="title" type="text" placeholder="제목을 입력해주세요" {...register("title", { required: true, minLength: 5 })} />
                     {errors.title && <p style={{ color: "red", padding: " 0 20px" }}>최소 5자리를 입력해주세요</p>}
                 </InputBox>
+
+                <InputBox>
+                    <label htmlFor="">태그</label>
+                    <input name="title" type="text" placeholder="원하시는 태그를 입력해주세요" {...register("title", { required: true, minLength: 5 })} />
+                </InputBox>
                 <Upload>
                     <label htmlFor="">썸네일</label>
                     <InputFile htmlFor="input-file">파일 선택</InputFile>

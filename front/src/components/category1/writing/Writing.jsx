@@ -20,7 +20,7 @@ function Writing(){
 
     return(
         <>
-            <Header/>
+
             <Container>
                 <Contents>
                     <WritingForm />
