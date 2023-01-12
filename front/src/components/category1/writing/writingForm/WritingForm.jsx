@@ -49,13 +49,13 @@ function WritingForm() {
             alert("이미지를 업로드해주세요");
             return false;
         }
-        // try {
-        //     await writeHttp.submitWritingForm(data, { headers: { "Content-Type": "multipart/form-data" } });
-        //     alert("글 작성이 완료되었습니다.");
-        //     navigate("/category1");
-        // } catch (err) {
-        //     console.log(err);
-        // }
+        try {
+            await writeHttp.submitWritingForm(data, { headers: { "Content-Type": "multipart/form-data" } });
+            alert("글 작성이 완료되었습니다.");
+            navigate("/category1");
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     return (
