@@ -49,13 +49,13 @@ function WritingForm() {
             alert("이미지를 업로드해주세요");
             return false;
         }
-        try {
-            await writeHttp.submitWritingForm(data, { headers: { "Content-Type": "multipart/form-data" } });
-            alert("글 작성이 완료되었습니다.");
-            navigate("/category1");
-        } catch (err) {
-            console.log(err);
-        }
+        // try {
+        //     await writeHttp.submitWritingForm(data, { headers: { "Content-Type": "multipart/form-data" } });
+        //     alert("글 작성이 완료되었습니다.");
+        //     navigate("/category1");
+        // } catch (err) {
+        //     console.log(err);
+        // }
     };
 
     return (
@@ -76,7 +76,8 @@ function WritingForm() {
 
                 <InputBox>
                     <label htmlFor="">태그</label>
-                    <input name="title" type="text" placeholder="원하시는 태그를 입력해주세요" {...register("title", { required: true, minLength: 5 })} />
+                    <input name="tags" type="tags" placeholder="원하시는 태그를 입력해주세요" {...register("tags", { required: true, minLength: 5 })} />
+                    {errors.tags && <p style={{ color: "red", padding: " 0 20px" }}>태그는 최소  5자리를 입력해주세요</p>}
                 </InputBox>
                 <Upload>
                     <label htmlFor="">썸네일</label>
