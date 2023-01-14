@@ -5,10 +5,8 @@ import {mq} from "../../../media/media";
 function Banner() {
     return(
         <BannerWrap>
-            <img src={`${process.env.PUBLIC_URL}/image/Banner.jpg`} alt=""/>
-          <TextWrap>
-             <h1><span>오늘의</span><span>추천 MENU</span></h1>
-          </TextWrap>
+
+
         </BannerWrap>
     )
 }

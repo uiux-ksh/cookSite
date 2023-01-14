@@ -7,7 +7,14 @@ import {mq} from '../../../media/media';
 
 import UserHttp from "../../../../http/userHttp";
 
-const GnbContainer = styled.ul`
+
+
+
+const userHttp = new UserHttp();
+
+function RightGnb({color}) {
+
+  const GnbContainer = styled.ul`
   width: 300px;
   display: flex;
   align-items: center;
@@ -19,24 +26,17 @@ const GnbContainer = styled.ul`
   li {
     
     a {
-      font-weight: 500;
-      font-size: 16px !important;
-      &:hover {
-        color: #35c5f0;
+      color:${color};
+      cursor: pointer;
+      &:hover{
+        color:#ff7100;
       }
+   
     }
   }
 `;
-const MediaMenu = styled.div`
-   display: none;
-   ${mq[0]}{
-     display: block;
-   }
-`
 
-const userHttp = new UserHttp();
 
-function RightGnb() {
     const userInfo = useSelector((state) => state.persistedReducer.userReducer);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -69,19 +69,25 @@ function RightGnb() {
                 {userInfo.isLoggedIn === false ? (
                     <>
                         <li>
-                            <Link to="/login"> 로그인</Link>
+                             <a >전체카테고리</a>
                         </li>
                         <li>
-                            <Link to="/sign">회원가입</Link>
+                                <Link to="/login" > 로그인</Link>
+                        </li>
+                        <li>
+                            <Link to="/sign" >회원가입</Link>
                         </li>
                     </>
                 ) : (
                     <>
                         <li>
+                            <a >전체카테고리</a>
+                        </li>
+                        <li>
                             <Link to={`/myPage/${userInfo.userId}`}>마이페이지</Link>
                         </li>
                         <li>
-                            <Link to="/" onClick={logout}>로그아웃</Link>
+                            <Link to="/" onClick={logout} >로그아웃</Link>
                         </li>
                     </>
                 )}
@@ -93,3 +99,10 @@ function RightGnb() {
 }
 
 export default RightGnb;
+
+const MediaMenu = styled.div`
+   display: none;
+   ${mq[0]}{
+     display: block;
+   }
+`

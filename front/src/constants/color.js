@@ -1,3 +1,4 @@
 export const color= {
-    main:'#FE642E'
+    main:'#FE642E',
+    headerColor:'#ffffff'
 }
