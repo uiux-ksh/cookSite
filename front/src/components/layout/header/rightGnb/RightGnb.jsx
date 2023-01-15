@@ -6,6 +6,7 @@ import { loginUser } from "../../../../redux/reducer/userSlice";
 import {mq} from '../../../media/media';
 
 import UserHttp from "../../../../http/userHttp";
+import List from "./List";
 
 
 
@@ -28,6 +29,7 @@ function RightGnb({color}) {
     a {
       color:${color};
       cursor: pointer;
+      font-size: 16px !important;
       &:hover{
         color:#ff7100;
       }
@@ -68,9 +70,7 @@ function RightGnb({color}) {
             <GnbContainer>
                 {userInfo.isLoggedIn === false ? (
                     <>
-                        <li>
-                             <a >전체카테고리</a>
-                        </li>
+                        <List />
                         <li>
                                 <Link to="/login" > 로그인</Link>
                         </li>
@@ -80,9 +80,7 @@ function RightGnb({color}) {
                     </>
                 ) : (
                     <>
-                        <li>
-                            <a >전체카테고리</a>
-                        </li>
+                        <List />
                         <li>
                             <Link to={`/myPage/${userInfo.userId}`}>마이페이지</Link>
                         </li>

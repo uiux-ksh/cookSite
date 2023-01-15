@@ -10,7 +10,7 @@ import Writing from "../../components/category1/writing/Writing";
 
 const Container = styled.section`
     width: 1200px;
-    margin: 10px auto 0;
+    margin: 100px auto 0;
     
   
 `;
@@ -32,6 +32,7 @@ function Category1() {
             <Routes>
                 <Route path="writing" element={<Writing />}></Route>
             </Routes>
+            <Header color="#222" isMain={true}/>
             <Container>
                 <Category1Title>
                     <h1>카테고리 이름</h1>

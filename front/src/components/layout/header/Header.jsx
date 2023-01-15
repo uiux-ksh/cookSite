@@ -1,9 +1,10 @@
-import Nav from "./nav/Nav";
+
 import styled from "@emotion/styled";
 import Logo from "./logo/Logo";
 import RightGnb from "./rightGnb/RightGnb";
 import Search from "./search/Search";
 import {mq} from "../../media/media";
+import MainSearch from "./search/MainSearch";
 
 const HeaderContainer = styled.header`
     width: 100%;
@@ -43,7 +44,7 @@ const Container = styled.div`
     align-items: center;
     height: 65px;
     margin: 0 auto;
-    border-bottom: 1px solid red;
+
  
   ${mq[0]}{
     width: 100vw;
@@ -52,13 +53,25 @@ const Container = styled.div`
   }
 `;
 
+const ContainerFalse = styled.div`
+  position: relative;
+  top:0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  margin: 0 auto;
+  border:1px solid #ccc;
+  box-shadow: 4px 4px 16px rgba(0,0,0,.1);
+`
 function Header({color, isMain}) {
     const TitleWrap = styled.div`
       position: absolute;
       top:50%;
       left:50%;
       transform: translate(-50%,-50%);
-      height: 100px;
+      height: 130px;
       >p{
         text-align: center;
         width: 720px;
@@ -69,27 +82,28 @@ function Header({color, isMain}) {
   
 `
     return (
-        <HeaderContainer>
-            <img src={`${process.env.PUBLIC_URL}/image/Banner.jpg`} alt=""/>
+       <>
             {isMain ?
-                <Container>
+                <ContainerFalse>
                     <Logo color={color}/>
                     <Search />
                     <RightGnb color={color}/>
-                </Container>
+                </ContainerFalse>
                 :
-                <Container>
+                <HeaderContainer>
+                  <img src={`${process.env.PUBLIC_URL}/image/Banner.jpg`} alt=""/>
+                  <Container>
                     <Logo color={color}/>
                     <RightGnb color={color}/>
-                </Container>
+                  </Container>
+                  <TitleWrap>
+                    <p>솔직한 리뷰 밑을수 있는 평점</p>
+                    <p>오늘뭐먹지?</p>
+                    <MainSearch />
+                  </TitleWrap>
+                </HeaderContainer>
             }
-            <TitleWrap>
-                <p>솔직한 리뷰 밑을수 있는 평점</p>
-                <p>오늘뭐먹지?</p>
-                <Search/>
-            </TitleWrap>
-            {/*<Nav />*/}
-        </HeaderContainer>
+        </>
     );
 }
 
