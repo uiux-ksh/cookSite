@@ -24,7 +24,7 @@ function WritingForm() {
     const imageChange = async (e) => {
         const files = e.target.files; // FileList 객체
         try {
-            const { result } = await writeHttp.imgUpload({ imageFile: files[0], user_id: 5 });
+            const { result } = await writeHttp.imgUpload({ imageFile: files[0], user_id:userId  });
             setImagePreview(result.url);
         } catch (err) {
             alert("파일 크기는 1메가로 지정되어있씁니다.");

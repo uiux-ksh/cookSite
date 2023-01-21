@@ -1,5 +1,4 @@
-import styled from "@emotion/styled";
-import Banner from "./banner/Banner";
+
 import Popularity from "./popularity/Popularity";
 import Ranking from "./ranking/Ranking";
 import Header from "../header/Header";
@@ -16,7 +15,6 @@ function Main() {
     return (
         <>
             <Header {...Props}/>
-
             <Popularity />
             <Ranking />
         </>
