@@ -5,6 +5,7 @@ import RightGnb from "./rightGnb/RightGnb";
 import Search from "./search/Search";
 import {mq} from "../../media/media";
 import MainSearch from "./search/MainSearch";
+import {useState} from "react";
 
 const HeaderContainer = styled.header`
     width: 100%;
@@ -66,21 +67,35 @@ const ContainerFalse = styled.div`
   box-shadow: 4px 4px 16px rgba(0,0,0,.1);
 `
 function Header({color, isMain}) {
-    const TitleWrap = styled.div`
-      position: absolute;
-      top:50%;
-      left:50%;
-      transform: translate(-50%,-50%);
-      height: 130px;
-      >p{
-        text-align: center;
-        width: 720px;
-        font-size: 2.2rem;
-        line-height: 45px;
-          color:${color}
-      }
-  
+
+    const [isFocus, setIsFocus] = useState(false);
+    const handleFocus = () => {
+        setIsFocus(true)
+    }
+    const handleClick = () => {
+        setIsFocus(false);
+    }
+    //css 변수로 제어
+const TitleWrap = styled.div`
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  height: 130px;
+    >p{
+    text-align: center;
+    width: 720px;
+    font-size: 2.2rem;
+    line-height: 45px;
+    color:${color}
+    }
 `
+
+    const Props = {
+      isFocus:isFocus,
+      onFocus:handleFocus,
+      onClick:handleClick
+    }
     return (
        <>
             {isMain ?
@@ -99,7 +114,7 @@ function Header({color, isMain}) {
                   <TitleWrap>
                     <p>솔직한 리뷰 밑을수 있는 평점</p>
                     <p>오늘뭐먹지?</p>
-                    <MainSearch />
+                    <MainSearch {...Props}/>
                   </TitleWrap>
                 </HeaderContainer>
             }
