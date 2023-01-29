@@ -26,7 +26,7 @@ function CateItem() {
     useEffect(() => {
         (async () => {
             try {
-                const { result } = await CategoryHttp.getCategoryList(true, currentPage, `카테고리3`);
+                const { result } = await CategoryHttp.getCategoryList(true, currentPage, `한식`);
                 setPosts(result);
                 setTotalPost(result.length);
             } catch (err) {
